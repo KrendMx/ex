@@ -1,23 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { Main } from "./Components/Main/Main";
+import { Auth } from "./Components/Auth/Auth";
+import { Catalog } from "./Components/Catalog/Catalog";
+import { User } from "./Components/User/User";
+import { Reg } from "./Components/Reg/Reg";
+import { Header } from "./Components/Header/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <div className="w-75 m-auto text-center">
+        <Routes>
+          <Route
+            path={"/"}
+            element={
+              <>
+                <Main />
+              </>
+            }
+          />
+          <Route
+            path={"/catalog"}
+            element={
+              <>
+                <Catalog />
+              </>
+            }
+          />
+          <Route
+            path={"/auth"}
+            element={
+              <>
+                <Auth />
+              </>
+            }
+          />
+          <Route
+            path={"/reg"}
+            element={
+              <>
+                <Reg />
+              </>
+            }
+          />
+          <Route
+            path={"/user"}
+            element={
+              <>
+                <User />
+              </>
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
 }
